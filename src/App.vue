@@ -3,9 +3,19 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
-  <router-view/>
+  <router-view />
 </template>
 
+
+<script>
+import mockData from './mockData';
+export default {
+  name: 'App',
+  created() {
+    this.$store.commit('setMockData', mockData);
+  }
+}
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
