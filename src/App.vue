@@ -11,8 +11,27 @@
 import mockData from './mockData';
 export default {
   name: 'App',
+  methods: {
+    parseMockDataToData() {
+      const parsedData = [];
+      mockData.data.forEach((item) => {
+        const parsedItem = {
+          name: item[0],
+          company: item[1],
+          email: item[2],
+          date: item[3],
+          country: item[4],
+          city: item[5],
+        };
+        parsedData.push(parsedItem);
+      });
+      this.$store.commit('setData', parsedData);
+    }
+  },
   created() {
     this.$store.commit('setMockData', mockData);
+    this.parseMockDataToData();
+    console.log(this.$store.getters.getData);
   }
 }
 </script>

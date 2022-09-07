@@ -6,7 +6,12 @@ export default createStore({
     data: null
   },
   getters: {
-    getMockData: state => state.mockData
+    getMockData: state => state.mockData,
+    getData: state => state.data
+  },
+  
+  getData: {
+    getData: state => state.data
   },
   mutations: {
     setMockData(state, payload) {
@@ -14,6 +19,9 @@ export default createStore({
     },
     setData(state, payload) {
       state.data = payload
+    },
+    createNewData(state, payload) {
+      state.data.push(payload)
     }
   },
   actions: {
